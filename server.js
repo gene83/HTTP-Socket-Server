@@ -32,7 +32,6 @@ const server = net
     socket.setEncoding('utf8');
     socket.on('data', data => {
       // this is the request
-      console.log(data);
 
       const indexOfSlash = data.indexOf('/');
       const indexOfHTTP = data.indexOf('HTTP');
@@ -53,10 +52,7 @@ const server = net
 
   // handle errors on the server
   .on('error', err => {
-    process.stdout.write(
-      `Error: 404 not found
-    ` + error404.error404
-    );
+    throw err;
   });
 
 // this starts the server

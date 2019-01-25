@@ -59,8 +59,8 @@ User-Agent: Gene's Client
     }
   );
 
-  client.on('error', data => {
-    process.stdout.write(data.code);
+  client.on('error', err => {
+    throw err;
   });
 
   client.on('data', data => {
